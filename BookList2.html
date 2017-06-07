@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang ="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <style>
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even) {
+      background-color: #dddddd;
+  }
+
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 5px 5px 5px; padding: 2.8em; font-size: 1.4em; height: 1.5em; }
+  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+  /*.ui-state-highlight { height: 1.5em; line-height: 1.2em; }*/
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#sortable" ).sortable({
+      placeholder: "ui-state-highlight"
+    });
+    $( "#sortable" ).disableSelection();
+  } );
+  </script>
+
+
+  <title>Bookworms</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+</head>
+<body onload="getCategory()">
+
+<div class="w3-container w3-white">
+  <h1 style="color: #164C86";>Admin Portal</h1>
+</div>
+
+<div class="w3-bar" style="background-color: #164C86; color: white;">
+  <button class="w3-bar-item w3-button" onclick="openCity('Users')">Users</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Categories')">Categories</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Recommendations')">Recommendations</button>
+</div>
+
+
+<div id="Users" class="tab">
+  <h2>Users</h2>
+
+  <table>
+    <tr>
+      <th> Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th> Department</th>
+      <th>Password</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+
+    <tr>
+    <td>Mustafa Ibraheem Hussain</td>
+    <td>mHussain</td>
+    <td> mihussai@uci.edu</td>
+    <td>Informatics</td>
+    <td>*******</td>
+    <td>
+      <form action="" method="post/get">
+        <input type="hidden" name="id" value="<?php echo $row_id; ?>" />
+        <input type="submit" value="Edit"/>
+      </form>
+    </td>
+      <td> <button style="border-radius: 60%; background-color: #8O8O8O; border: none; display: inline-block; margin-left: 71.2%"> X </button> </td>
+  </tr>
+  <tr>
+    <td>Hadar Ziv</td>
+    <td>hZiv</td>
+    <td> hadarziv97@gmail.com</td>
+    <td>Computer Science</td>
+    <td>******</td>
+    <td>
+      <form action="" method="post/get">
+        <input type="hidden" name="id" value="<?php echo $row_id; ?>" />
+        <input type="submit" value="Edit"/>
+      </form>
+    </td>
+    <td> <button style="border-radius: 60%; background-color: #8O8O8O; border: none; display: inline-block; margin-left: 71.2%"> X </button> </td>
+  </tr>
+  <tr>
+    <td>David Kay</td>
+    <td>dKay</td>
+    <td>kay@ics.uci.edu</td>
+    <td>Informatics</td>
+    <td>*****</td>
+    <td>
+      <form action="" method="post/get">
+        <input type="hidden" name="id" value="<?php echo $row_id; ?>" />
+        <input type="submit" value="Edit"/>
+      </form>
+    </td>
+      <td> <button style="border-radius: 60%; background-color: #8O8O8O; border: none; display: inline-block; margin-left: 71.2%"> X </button> </td>
+  </tr>
+</table>
+</div>
+
+<div id="Categories" class="tab" style="display:none">
+  <h2>Categories</h2>
+
+<ul id="sortable">
+  <li class="ui-state-default" style="background-color:#ccddff;">Human and Computer Interaction <h4 style="color:#ff9933; float:right">7 books <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span></button> <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span></h4> </li>
+
+  <li class="ui-state-default" style="background-color:#ccddff;">Data Visualization <h4 style="color:#ff9933; float:right">3 books <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span></button> <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span></h4> </li>
+
+  <li class="ui-state-default" style="background-color:#ccddff;">Project Management <h4 style="color:#ff9933; float:right">10 books <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span></button> <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span></h4> </li>
+
+  <li class="ui-state-default" style="background-color:#ccddff;">Requirements Engineering<h4 style="color:#ff9933; float:right">2 books <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span></button> <button type="button" style="color: #000000; class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span></h4> </li>
+
+</ul>
+
+
+<!-- <script id="#jsbin-javascript">
+
+var sortable = Sortable.create(list);
+
+switcher.onclick = function () {
+	var state = sortable.option("disabled"); // get
+
+	sortable.option("disabled", !state); // set
+
+    switcher.innerHTML = state ? 'disable' : 'enable';
+};
+</script> -->
+  <br>
+  <br>
+   <button style="background-color:#ff9933; color: white; border: none; font-size: 20px; padding: 10px 10px 10px; margin-left: 2%; cursor: pointer;"
+    onclick="document.getElementById('addCat').style.display='block'">
+     Add Categories </button>
+
+</div>
+
+<div id="addCat" class="w3-modal">
+   <div class="w3-modal-content">
+     <h3 style="color: #164C86"> Add a category </h3>
+       <div class="w3-container">
+         <span onclick="document.getElementById('addCat').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+         <label style="font-size: 20px; display: block;"> Category Name </label>
+         <input id="catName" value="" name="catName" reqiured style="border: solid black 1px; height: 8%; display: block;">
+         <br>
+         <label style="font-size: 20px; display: block;"> Tags </label>
+         <input id="tags" value="" name="tags" reqiured style="border: solid black 1px; height: 8%;">
+         <br>
+         <br>
+         <button class="w3-button" onclick="addCategory(value)" style="background-color: #164C86; color: white; display: block; height: 6%; display: block;" value="itemsToAdd" type="submit">Submit</button>
+</div>
+</div>
+</div>
+
+<div id="Recommendations" class="tab" style="display:none">
+  <h2>Recommendations</h2>
+  <!--Booklisting #1 -->
+    <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+        <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=B5FjDQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api" alt="Software Architecture in Action"></div>
+  	<p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Software Architecture in Action</p>
+      <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Flávio Oquendo, Jair Leite, Thais Batista</p>
+      <p style="font-family: District-Thin, Tahoma;
+      font-weight: normal;
+      font-style: italic;    font-family: District-Thin, Tahoma;
+      font-weight: normal;
+      font-style: italic;">Recommended by
+      <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+  	</p>
+  	<p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+      <p>Categories: </p>
+      <p>Audience: </p>
+      </div>
+
+    <!--Booklisting #2 -->
+   <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+        <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=gFE4DQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;source=gbs_api" alt="Software Design Decoded"></div>
+      <p  style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Software Design Decoded</p>
+      <p style="font-family: District-Medium, Helvetica;
+      font-weight: bold;
+      font-style: italic;">Marian Petre, André van der Hoek, Yen Quach</p>
+      <p style="font-family: District-Thin, Tahoma;
+      font-weight: normal;
+      font-style: italic;    font-family: District-Thin, Tahoma;
+      font-weight: normal;
+      font-style: italic;">Recommended by
+      <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's my book!!!</p>
+      <p> <a class="gb_more" href="http://books.google.com/books?id=gFE4DQAAQBAJ&amp;dq=software++design+decoded&amp;hl=&amp;source=gbs_api" target="_blank">More Information...</a></p>
+      <p>Categories: </p>
+      <p>Audience: </p>
+         </div>
+    <!--Booklisting #3 -->
+    <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+        <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=GfMSW5w3NTwC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api" alt="Software Architecture in Action"></div>
+    <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">The Twilight Saga Complete Collection</p>
+      <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Stephenie Meyer</p>
+      <p style="font-family: District-Thin, Tahoma;
+      font-weight: normal;
+      font-style: italic;    font-family: District-Thin, Tahoma;
+      font-weight: normal;
+      font-style: italic;">Recommended by
+      <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+    </p>
+    <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+      <p>Categories: </p>
+      <p>Audience: </p>
+      </div>
+      <!--Booklisting #4 -->
+      <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+          <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=Unw7DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Literacy: Helping Students Construct Meaning"></div>
+      <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Literacy: Helping Students Construct Meaning</p>
+        <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">J. David Cooper, Michael D. Robinson, Jill Ann Slansky, Nancy D. Kiger</p>
+        <p style="font-family: District-Thin, Tahoma;
+        font-weight: normal;
+        font-style: italic;    font-family: District-Thin, Tahoma;
+        font-weight: normal;
+        font-style: italic;">Recommended by
+        <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+      </p>
+      <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+        <p>Categories: </p>
+        <p>Audience: </p>
+        </div>
+        <!--Booklisting #5 -->
+        <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+            <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=9uzEukFA4ZQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="HCI Beyond the GUI"></div>
+        <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">HCI Beyond the GUI</p>
+          <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Philip Kortum</p>
+          <p style="font-family: District-Thin, Tahoma;
+          font-weight: normal;
+          font-style: italic;    font-family: District-Thin, Tahoma;
+          font-weight: normal;
+          font-style: italic;">Recommended by
+          <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+        </p>
+        <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+          <p>Categories: </p>
+          <p>Audience: </p>
+          </div>
+          <!--Booklisting #6 -->
+          <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+              <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=_K7g-9mWyAAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Paper Cutting Book"></div>
+          <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Paper Cutting Book</p>
+            <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Laura Heyenga</p>
+            <p style="font-family: District-Thin, Tahoma;
+            font-weight: normal;
+            font-style: italic;    font-family: District-Thin, Tahoma;
+            font-weight: normal;
+            font-style: italic;">Recommended by
+            <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+          </p>
+          <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+            <p>Categories: </p>
+            <p>Audience: </p>
+            </div>
+            <!--Booklisting #7 -->
+            <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=zKl_4L9AWccC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Eragon"></div>
+            <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Eragon</p>
+              <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Christopher Paolini</p>
+              <p style="font-family: District-Thin, Tahoma;
+              font-weight: normal;
+              font-style: italic;    font-family: District-Thin, Tahoma;
+              font-weight: normal;
+              font-style: italic;">Recommended by
+              <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+            </p>
+            <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+              <p>Categories: </p>
+              <p>Audience: </p>
+              </div>
+              <!--Booklisting #7 -->
+              <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                  <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=ofCED92NKE8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Eragon"></div>
+              <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Back to Blood</p>
+                <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Tom Wolfe</p>
+                <p style="font-family: District-Thin, Tahoma;
+                font-weight: normal;
+                font-style: italic;    font-family: District-Thin, Tahoma;
+                font-weight: normal;
+                font-style: italic;">Recommended by
+                <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+              </p>
+              <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                <p>Categories: </p>
+                <p>Audience: </p>
+                </div>
+                <!--Booklisting #8 -->
+                <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                    <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=7R_x4PIjOcYC&printsec=frontcover&img=1&zoom=1&source=gbs_api" alt="Eragon"></div>
+                <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">"Yup ...Nope" and Other Vermont Dialogues</p>
+                  <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Keith Jennison</p>
+                  <p style="font-family: District-Thin, Tahoma;
+                  font-weight: normal;
+                  font-style: italic;    font-family: District-Thin, Tahoma;
+                  font-weight: normal;
+                  font-style: italic;">Recommended by
+                  <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                </p>
+                <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                  <p>Categories: </p>
+                  <p>Audience: </p>
+                  </div>
+                  <!--Booklisting #9 -->
+                  <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                      <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=yoy2vXSXbeEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Eragon"></div>
+                  <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Your New Job Title Is "Accomplice"</p>
+                    <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Scott Adams</p>
+                    <p style="font-family: District-Thin, Tahoma;
+                    font-weight: normal;
+                    font-style: italic;    font-family: District-Thin, Tahoma;
+                    font-weight: normal;
+                    font-style: italic;">Recommended by
+                    <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                  </p>
+                  <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                    <p>Categories: </p>
+                    <p>Audience: </p>
+                    </div>
+                    <!--Booklisting #10 -->
+                    <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                        <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=k0kBgyCaokAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Human-Computer Interaction"></div>
+                    <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Human-Computer Interaction</p>
+                      <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">I. Scott MacKenzie</p>
+                      <p style="font-family: District-Thin, Tahoma;
+                      font-weight: normal;
+                      font-style: italic;    font-family: District-Thin, Tahoma;
+                      font-weight: normal;
+                      font-style: italic;">Recommended by
+                      <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                    </p>
+                    <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                      <p>Categories: </p>
+                      <p>Audience: </p>
+                      </div>
+                      <!--Booklisting #11 -->
+                      <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                          <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=nlgWywAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" alt="Cracking the Coding Interview"></div>
+                      <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Cracking the Coding Interview</p>
+                        <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Gayle Laakmann McDowell</p>
+                        <p style="font-family: District-Thin, Tahoma;
+                        font-weight: normal;
+                        font-style: italic;    font-family: District-Thin, Tahoma;
+                        font-weight: normal;
+                        font-style: italic;">Recommended by
+                        <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                      </p>
+                      <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                        <p>Categories: </p>
+                        <p>Audience: </p>
+                        </div>
+                        <!--Booklisting #12 -->
+                        <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                            <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=EG7wUnudYbIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Text-Tionary"></div>
+                        <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Text-Tionary</p>
+                          <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Shirley Slee</p>
+                          <p style="font-family: District-Thin, Tahoma;
+                          font-weight: normal;
+                          font-style: italic;    font-family: District-Thin, Tahoma;
+                          font-weight: normal;
+                          font-style: italic;">Recommended by
+                          <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                        </p>
+                        <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                          <p>Categories: </p>
+                          <p>Audience: </p>
+                          </div>
+                          <!--Booklisting #13-->
+                          <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                              <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=KnCXVDTEjsgC&printsec=frontcover&img=1&zoom=1&source=gbs_api" alt="C++ Programing"></div>
+                          <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">C++ Programing</p>
+                            <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Donald Walker</p>
+                            <p style="font-family: District-Thin, Tahoma;
+                            font-weight: normal;
+                            font-style: italic;    font-family: District-Thin, Tahoma;
+                            font-weight: normal;
+                            font-style: italic;">Recommended by
+                            <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                          </p>
+                          <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                            <p>Categories: </p>
+                            <p>Audience: </p>
+                            </div>
+                            <!--Booklisting #14 -->
+                            <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                                <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=8Du4rQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" alt="A Handweaver's Pattern Book"></div>
+                            <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">A Handweaver's Pattern Book</p>
+                              <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">Marguerite Porter Davison</p>
+                              <p style="font-family: District-Thin, Tahoma;
+                              font-weight: normal;
+                              font-style: italic;    font-family: District-Thin, Tahoma;
+                              font-weight: normal;
+                              font-style: italic;">Recommended by
+                              <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                            </p>
+                            <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                              <p>Categories: </p>
+                              <p>Audience: </p>
+                              </div>
+                              <!--Booklisting #15 -->
+                              <div style="background-color:#ccddff; width: 60%; margin: 2em; padding: 1em; border: 0; font-size: 100%; vertical-align: baseline;">
+                                  <div style="float:left; margin-right:1em;"><img src="http://books.google.com/books/content?id=-4ngT05gmAQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="Computer Graphics"></div>
+                              <p style="font-size: 24px;color: #d82231; font-family: District-Medium, Helvetica; font-weight: normal; font-style: normal;">Computer Graphics</p>
+                                <p style="font-family: District-Medium, Helvetica; font-weight: bold; font-style: italic;">James D. Foley</p>
+                                <p style="font-family: District-Thin, Tahoma;
+                                font-weight: normal;
+                                font-style: italic;    font-family: District-Thin, Tahoma;
+                                font-weight: normal;
+                                font-style: italic;">Recommended by
+                                <a href="https://booklist.ics.uci.edu/author/suhas"> </a>: <!--<p class="book_paragraph">-->It's so bad!
+                              </p>
+                              <p><a class="gb_more" href="https://play.google.com/store/books/details?id=B5FjDQAAQBAJ&amp;source=gbs_api" target="_blank">More Information...</a></p>
+                                <p>Categories: </p>
+                                <p>Audience: </p>
+                                </div>
+
+
+<script>
+function openCity(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+</script>
+
+
+<script>
+function addCategory(value) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:3000', true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.onload = function () {
+    // do something to response
+    console.log(this.responseText);
+};
+
+  var data = new FormData();
+  var category = document.getElementById('catName').value;
+  var tags = document.getElementById('tags').value;
+  data.append(category, tags);
+  xhr.send([category, tags]);
+}
+</script>
+
+<script>
+function getCategory(value) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000', true);
+
+  xhr.onload = function () {
+    // do something to response
+    console.log(this.responseText);
+    // document.getElementById("list").innerHTML += "<p>this.responseText</p>"
+    document.getElementById("list").innerHTML = "<li class='list-group-item'><div style='background-color:#ccddff; width: 60%'><h3 style='display: inline-block; '>Human and Computer Interaction</h3>"
+};
+
+
+  xhr.send();
+}
+</script>
+</body>
+
+</html>

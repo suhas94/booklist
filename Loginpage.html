@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+input[type=text], input[type=password]{
+  width: ;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button{
+  height: 50px;
+  width: 5000px;
+}
+
+
+</style>
+<title>Bookworms</title>
+<meta name="viewport">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container w3-white">
+  <h1 style="color: #164C86";>Admin Portal</h1>
+</div>
+<div class="w3-bar" style="background-color: #164C86; color: white;">
+  <br><br>
+  </div>
+  <br>
+
+<center><div class="container">
+  <label><b>Username</b></label>
+  <br>
+  <input id="uN" type="text" placeholder="Enter Username"
+  name="uname" required><br>
+
+  <legendabel><b>Password</b></label>
+    <br>
+  <input id="pass" type="text" placeholder="Password"
+  name="psw" required>
+  <br><button id="button" onclick="login()"
+  style="width:auto;">Login</button>
+</div></center>
+<script>
+function login() {
+  console.log("login");
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:3000/login', true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.onload = function () {
+    // do something to response
+    console.log(this.responseText);
+    console.log(this.status);
+
+    if (this.status === 404) {
+      alert("Username/Password is incorrect");
+    }
+    else if (this.status == 200) {
+      // document.getElementById("button").onclick="location.href='http://google.com"
+      window.location = "file:///Users/kaylab/Desktop/front_end/BookList2.html";
+    }
+};
+  var username = document.getElementById('uN').value;
+  var password = document.getElementById('pass').value;
+  xhr.send([username, password]);
+}
+</script>
+</body>
+</html>
